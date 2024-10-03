@@ -9,7 +9,6 @@ public class CursorObject : MonoBehaviour
     [SerializeField] private CursorType hoverCursorType = CursorType.Default;
     public void OnMouseEnter() {
         CursorManager.Instance.setActiveCursorType(hoverCursorType);
-        print("HELLO");
     }
 
     public void OnMouseExit() {

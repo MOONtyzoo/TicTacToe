@@ -28,10 +28,10 @@ public class TicTacToeGame : MonoBehaviour
     }
 
     public void OnSlotMouseEntered(Slot slot) {
-        if (!slot.IsMarked())
+        if (!slot.IsMarked() && IsHumanTurn())
             slots.PreviewSlot(slot, currentMarkerType);
     }
-    
+
     public void OnSlotMouseExited(Slot slot) {
         if (!slot.IsMarked())
             slots.UnPreviewSlot(slot);
