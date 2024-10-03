@@ -27,6 +27,16 @@ public class TicTacToeGame : MonoBehaviour
         }
     }
 
+    public void OnSlotMouseEntered(Slot slot) {
+        if (!slot.IsMarked())
+            slots.PreviewSlot(slot, currentMarkerType);
+    }
+    
+    public void OnSlotMouseExited(Slot slot) {
+        if (!slot.IsMarked())
+            slots.UnPreviewSlot(slot);
+    }
+
     public void OnResetButtonClicked() {
         Reset();
         sounds.PlayResetSound();

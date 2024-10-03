@@ -11,10 +11,32 @@ public class Slot : MonoBehaviour
     public int slotNumber = 0;
 
     private bool isMarked = false;
+    private bool isPreviewEnabeled = false;
+
+    private float previewAnimTime = 0;
+    void Update() {
+        if (!isMarked && isPreviewEnabeled) {
+            float alpha = 0.70f + 0.08f*(float)Math.Sin(previewAnimTime*3.0);
+            markerImage.color = new Color(1.0f, 1.0f, 1.0f, alpha);
+        } else {
+            markerImage.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        }
+        previewAnimTime += Time.deltaTime;
+    }
 
     public void OnClick() {
         if (IsEmpty())
            slots.OnSlotClicked(this);
+    }
+
+    public void OnMouseEnter()
+    {
+        slots.OnSlotMouseEntered(this);
+    }
+
+    public void OnMouseExit()
+    {
+        slots.OnSlotMouseExited(this);
     }
 
     public bool IsEmpty() {
@@ -30,9 +52,21 @@ public class Slot : MonoBehaviour
         SetTexture(markerSprite);
     }
 
-    public void ResetMark(Sprite sprite) {
+    public void ResetSlot(Sprite sprite) {
         isMarked = false;
+        isPreviewEnabeled = false;
         SetTexture(sprite);
+    }
+
+    public void EnablePreview(Sprite markerSprite) {
+        isPreviewEnabeled = true;
+        previewAnimTime = 0;
+        SetTexture(markerSprite);
+    }
+
+    public void DisablePreview(Sprite markerSprite) {
+        isPreviewEnabeled = false;
+        SetTexture(markerSprite);
     }
 
     public void SetTexture(Sprite sprite) {

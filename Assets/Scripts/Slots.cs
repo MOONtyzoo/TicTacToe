@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class Slots : MonoBehaviour
 {
@@ -16,9 +17,25 @@ public class Slots : MonoBehaviour
         ticTacToeGame.OnSlotClicked(slot);
     }
 
+    public void OnSlotMouseEntered(Slot slot) {
+        ticTacToeGame.OnSlotMouseEntered(slot);
+    }
+
+    public void OnSlotMouseExited(Slot slot) {
+        ticTacToeGame.OnSlotMouseExited(slot);
+    }
+
     public void UpdateSlot(Slot slot, MarkerType markerType) {
-        SetSlotImage(slot, markerType);
+        MarkSlot(slot, markerType);
         SetSlotOccupant(slot, markerType);
+    }
+
+    public void PreviewSlot(Slot slot, MarkerType markerType) {
+        slot.EnablePreview(GetMarkerSprite(markerType));
+    }
+
+    public void UnPreviewSlot(Slot slot) {
+        slot.DisablePreview(blankSprite);
     }
 
     public void SetSlotOccupant(Slot slot, MarkerType markerType) {
@@ -26,11 +43,18 @@ public class Slots : MonoBehaviour
         slotOccupants[slotIndex] = markerType;
     }
 
-    private void SetSlotImage(Slot slot, MarkerType markerType) {
+    private void MarkSlot(Slot slot, MarkerType markerType) {
+        slot.Mark(GetMarkerSprite(markerType));
+    }
+
+    private Sprite GetMarkerSprite(MarkerType markerType) {
         if (markerType == MarkerType.Panther)
-            slot.Mark(pantherSprite);
+            return pantherSprite;
         else if (markerType == MarkerType.Paw)
-            slot.Mark(pawSprite);
+            return pawSprite;
+        else if (markerType == MarkerType.None)
+            return blankSprite;
+        return blankSprite;
     }
 
     public void Reset() {
@@ -53,7 +77,7 @@ public class Slots : MonoBehaviour
 
     private void ResetSlotImages() {
         foreach (Slot slot in slotsList) {
-            slot.ResetMark(blankSprite);
+            slot.ResetSlot(blankSprite);
         }
     }
 
