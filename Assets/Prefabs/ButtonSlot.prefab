@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 5549018116339293405}
   - component: {fileID: 2575941708894502769}
   - component: {fileID: 4976442885097072312}
-  - component: {fileID: 4473673951901226517}
   - component: {fileID: 3293098063046932101}
+  - component: {fileID: 4578586300437775520}
+  - component: {fileID: 4473673951901226517}
+  - component: {fileID: 1276993741727030761}
   m_Layer: 5
   m_Name: ButtonSlot
   m_TagString: Untagged
@@ -68,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fee25f6446eb31640900a006b622269d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb725746ec891b8439133290cef539d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -134,6 +136,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3293098063046932101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589454455391488214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb580c0d9607595419016132da2f479c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots: {fileID: 0}
+  markerImage: {fileID: 2575941708894502769}
+  slotNumber: 1
+--- !u!114 &4578586300437775520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589454455391488214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4053c3d02de517e4db7f681d25073293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursorType: 1
 --- !u!114 &4473673951901226517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +193,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4578586300437775520}
+          m_TargetAssemblyTypeName: CursorObject, Assembly-CSharp
+          m_MethodName: OnMouseEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -179,7 +221,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &3293098063046932101
+        - m_Target: {fileID: 4578586300437775520}
+          m_TargetAssemblyTypeName: CursorObject, Assembly-CSharp
+          m_MethodName: OnMouseExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1276993741727030761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,9 +242,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6589454455391488214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb580c0d9607595419016132da2f479c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4053c3d02de517e4db7f681d25073293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots: {fileID: 0}
-  markerImage: {fileID: 2575941708894502769}
-  slotNumber: 0
+  hoverCursorType: 1
