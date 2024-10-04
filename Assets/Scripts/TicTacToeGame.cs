@@ -9,6 +9,7 @@ public class TicTacToeGame : MonoBehaviour
     public WinnerDisplay winnerDisplay;
     public GameMode gameMode;
     public Sounds sounds;
+    public ParticleManager particleManager;
 
     private MarkerType currentMarkerType;
     private MarkerType firstPlayerMarkerType;
@@ -73,7 +74,7 @@ public class TicTacToeGame : MonoBehaviour
     private void EndTurn() {
         CheckForWinner();
         if (IsGameOver()) {
-            OnGameWon();
+            OnGameOver();
             return;
         }
 
@@ -93,14 +94,44 @@ public class TicTacToeGame : MonoBehaviour
             winner = MarkerType.Tie;
     }
 
-    private void OnGameWon() {
-        winnerDisplay.Set(winner);
-        if (winner == MarkerType.Tie) sounds.PlayGameTiedSound();
-        else sounds.PlayGameOverSound();
-    }
-
     private bool IsGameOver() {
         return (winner != MarkerType.None);
+    }
+
+    private void OnGameOver() {
+        winnerDisplay.Set(winner);
+
+        // Check if we should play "tie" effects
+        if (winner == MarkerType.Tie) {
+            OnGameTied();
+            return;
+        }
+
+        // If both players are humans, we play the win effect no matter who wins
+        if (gameMode.GetOpponentType() == OpponentType.Human) {
+            OnGameWon();
+            return;
+        }
+
+        // If the opponenet is a robot, then we can actually lose
+        if (winner == firstPlayerMarkerType) {
+            OnGameWon();
+        } else {
+            OnGameLost();
+        }
+    }
+
+    private void OnGameWon() {
+        sounds.PlayGameWonSound();
+        particleManager.shootConfetti();
+    }
+
+    private void OnGameTied() {
+        sounds.PlayGameTiedSound();
+    }
+
+    private void OnGameLost() {
+        sounds.PlayGameOverSound();
     }
 
     private void ChangePlayer() {

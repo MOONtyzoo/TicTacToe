@@ -11,6 +11,7 @@ public class Sounds : MonoBehaviour
 
     public AudioClip gameOverClip;
     public AudioClip gameTiedClip;
+    public AudioClip gameWonClip;
 
     public List<AudioClip> markerPlacedClips;
 
@@ -37,6 +38,11 @@ public class Sounds : MonoBehaviour
 
     public void PlayGameTiedSound() {
         audioSource.clip = gameTiedClip;
+        audioSource.Play();
+    }
+
+    public void PlayGameWonSound() {
+        audioSource.clip = gameWonClip;
         audioSource.Play();
     }
 
