@@ -1530,6 +1530,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5262921962150578912, guid: 78bdc824249c91b49a551f4d5b9ed978, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5523950364744177372, guid: 78bdc824249c91b49a551f4d5b9ed978, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3431,6 +3435,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5262921962150578912, guid: 78bdc824249c91b49a551f4d5b9ed978, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5523950364744177372, guid: 78bdc824249c91b49a551f4d5b9ed978, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3741,6 +3749,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5262921962150578912, guid: 78bdc824249c91b49a551f4d5b9ed978, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5523950364744177372, guid: 78bdc824249c91b49a551f4d5b9ed978, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3860,6 +3872,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5563920906985742255, guid: 78313744258b2c046ac6c57d0cf29f3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406733027450359192, guid: 78313744258b2c046ac6c57d0cf29f3a, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7406733027450359192, guid: 78313744258b2c046ac6c57d0cf29f3a, type: 3}
