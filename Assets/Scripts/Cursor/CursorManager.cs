@@ -52,6 +52,7 @@ public class CursorManager : MonoBehaviour
             out movePos);
 
         Vector3 mousePos = canvas.transform.TransformPoint(movePos);
+        mousePos = new Vector3(mousePos.x, mousePos.y, transform.position.z);
         
         transform.position = mousePos + hotspotOffset;
     }

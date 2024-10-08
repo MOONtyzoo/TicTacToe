@@ -10,6 +10,7 @@ public class TicTacToeGame : MonoBehaviour
     public GameMode gameMode;
     public Sounds sounds;
     public ParticleManager particleManager;
+    public Animator animator;
 
     private MarkerType currentMarkerType;
     private MarkerType firstPlayerMarkerType;
@@ -41,6 +42,7 @@ public class TicTacToeGame : MonoBehaviour
     public void OnResetButtonClicked() {
         Reset();
         sounds.PlayResetSound();
+        animator.Play("ResetBoard", 0, 0.0f );
     }
 
     public void Reset() {
