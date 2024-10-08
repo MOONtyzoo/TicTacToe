@@ -9,6 +9,7 @@ public class Slot : MonoBehaviour
     public Slots slots;
     public Image markerImage;
     public int slotNumber = 0;
+    [SerializeField] private Animator animator;
 
     private bool isMarked = false;
     private bool isPreviewEnabeled = false;
@@ -50,6 +51,7 @@ public class Slot : MonoBehaviour
     public void Mark(Sprite markerSprite) {
         isMarked = true;
         SetTexture(markerSprite);
+        animator.Play("PlaceMarker", 0, 0.0f);
     }
 
     public void ResetSlot(Sprite sprite) {
