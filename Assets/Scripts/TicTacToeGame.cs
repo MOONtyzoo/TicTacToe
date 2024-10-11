@@ -17,6 +17,7 @@ public class TicTacToeGame : MonoBehaviour
     private int numberOfTurnsPlayed;
 
     private MarkerType winner = MarkerType.None;
+    private Coroutine opponentTurnCoroutine;
 
     void Start()
     {
@@ -61,6 +62,7 @@ public class TicTacToeGame : MonoBehaviour
     private void ResetPlayers() {
         RandomizeCurrentMarker();
         firstPlayerMarkerType = currentMarkerType;
+        if (opponentTurnCoroutine != null) StopCoroutine(opponentTurnCoroutine);
     }
 
     public void PlaceMarkerInSlot(Slot slot) {
@@ -157,11 +159,7 @@ public class TicTacToeGame : MonoBehaviour
     }
 
     private void PlayComputerTurn() {
-        StartCoroutine(ComputerPlayer.PlayComputerTurn(this));
-    }
-
-    private void ChangeOpponent() {
-        Reset();
+       opponentTurnCoroutine = StartCoroutine(ComputerPlayer.PlayComputerTurn(this));
     }
 
     private void UpdateSlotImage(Slot slot) {
