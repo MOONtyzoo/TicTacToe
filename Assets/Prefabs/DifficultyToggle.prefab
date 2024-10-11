@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4256769979625634132}
   - component: {fileID: 2485259084513533293}
-  - component: {fileID: 3928097308150128489}
+  - component: {fileID: 584583015030566827}
   - component: {fileID: 8783223145865287057}
   - component: {fileID: 6934060693932570440}
   m_Layer: 5
@@ -163,10 +163,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3928097308150128489}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 584583015030566827}
+        m_TargetAssemblyTypeName: ToggleEffects, Assembly-CSharp
+        m_MethodName: OnValueChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -176,7 +176,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
---- !u!114 &3928097308150128489
+--- !u!114 &584583015030566827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,11 +185,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5888930676457574867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce75a276d3010414a94f9fac725fe6d7, type: 3}
+  m_Script: {fileID: 11500000, guid: ef54f1a88ecd97f4cbc8940406617e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clickParticles: {fileID: 5262921962150578912}
-  animator: {fileID: 0}
+  toggle: {fileID: 2485259084513533293}
 --- !u!114 &8783223145865287057
 MonoBehaviour:
   m_ObjectHideFlags: 0
