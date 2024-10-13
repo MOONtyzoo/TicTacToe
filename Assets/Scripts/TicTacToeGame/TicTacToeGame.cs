@@ -119,6 +119,7 @@ public class TicTacToeGame : MonoBehaviour
 
     private void OnGameOver() {
         winnerDisplay.Set(winner);
+        boardObscurer.Deactivate();
 
         // Check if we should play "tie" effects
         if (winner == MarkerType.Tie) {
