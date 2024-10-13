@@ -9,17 +9,14 @@ public class CursorManager : MonoBehaviour
     public static CursorManager Instance {get; private set;} // singleton, there can only be one
 
     [SerializeField] private Canvas canvas;
-
-    [SerializeField] private Image cursorImage;
-    [SerializeField] private Sprite defaultCursorSprite;
-    [SerializeField] private Sprite interactCursorSprite;
-
+    [SerializeField] private Animator animator;
     [SerializeField] private Vector3 hotspotOffset;
 
     private CursorType activeCursorType = CursorType.Default;
     
     void Start() {
         Cursor.visible = false;
+        setActiveCursorType(default);
     }
 
     void Awake() {
@@ -28,17 +25,27 @@ public class CursorManager : MonoBehaviour
 
     void Update() {
         UpdateCursorPosition();
+        if (Input.GetMouseButtonDown(0)) {
+            PlayClickAnimation();
+        }
     }
 
     public void setActiveCursorType(CursorType cursorType) {
         activeCursorType = cursorType;
-        updateCursorImage();
+        setCursorAnimation();
     }
 
-    private void updateCursorImage() {
+    private void setCursorAnimation() {
         switch(activeCursorType) {
-            case CursorType.Default: cursorImage.sprite = defaultCursorSprite; return;
-            case CursorType.Interact: cursorImage.sprite = interactCursorSprite; return;
+            case CursorType.Default: animator.Play("Cursor-Default", 0, 0.0f); return;
+            case CursorType.Interact: animator.Play("Cursor-Interact", 0, 0.0f); return;
+        }
+    }
+
+    private void PlayClickAnimation() {
+        switch(activeCursorType) {
+            case CursorType.Default: return;
+            case CursorType.Interact: animator.Play("Cursor-Click", 0, 0.0f); return;
         }
     }
 
