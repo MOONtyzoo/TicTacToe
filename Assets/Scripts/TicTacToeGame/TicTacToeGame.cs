@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class TicTacToeGame : MonoBehaviour
 {
-    public Slots slots;
-    public TurnDisplay turnDisplay;
-    public WinnerDisplay winnerDisplay;
-    public GameMode gameMode;
-    public Sounds sounds;
-    public ParticleManager particleManager;
-    public Animator animator;
+    [Header("Game Components")]
+    [SerializeField] public Slots slots;
+    [SerializeField] private TurnDisplay turnDisplay;
+    [SerializeField] private WinnerDisplay winnerDisplay;
+    [SerializeField] public GameMode gameMode;
+
+    [Header("Effects Components")]
+    [SerializeField] private Sounds sounds;
+    [SerializeField] private ParticleManager particleManager;
+    [SerializeField] private Animator animator;
+    [SerializeField] private AnimatedLine animatedBorderLine;
+    [SerializeField] private BoardObscurer boardObscurer;
+
+    [Header("Colors")]
+    [SerializeField] private Color redTurnColor;
+    [SerializeField] private Color blueTurnColor;
 
     private MarkerType currentMarkerType;
     private MarkerType firstPlayerMarkerType;
@@ -50,6 +59,8 @@ public class TicTacToeGame : MonoBehaviour
         ResetSlots();
         ResetPlayers();
         turnDisplay.Set(currentMarkerType);
+        UpdateAnimatedBorderLine();
+        boardObscurer.Deactivate();
         winnerDisplay.Reset();
         winner = MarkerType.None;
         numberOfTurnsPlayed = 0;
@@ -84,9 +95,13 @@ public class TicTacToeGame : MonoBehaviour
 
         ChangePlayer();
         turnDisplay.Set(currentMarkerType);
+        UpdateAnimatedBorderLine();
         
         if (IsComputerTurn()) {
+            boardObscurer.Activate();
             PlayComputerTurn();
+        } else {
+            boardObscurer.Deactivate();
         }
     }
 
@@ -143,6 +158,13 @@ public class TicTacToeGame : MonoBehaviour
             currentMarkerType = MarkerType.Panther;
         else
             currentMarkerType = MarkerType.Paw;
+    }
+
+    private void UpdateAnimatedBorderLine() {
+        if (currentMarkerType == MarkerType.Panther)
+            animatedBorderLine.SetColor(redTurnColor);
+        else
+            animatedBorderLine.SetColor(blueTurnColor);
     }
 
     private bool IsHumanTurn() {
