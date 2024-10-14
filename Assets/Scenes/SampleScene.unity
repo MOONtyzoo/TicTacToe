@@ -2394,7 +2394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c0476a3b4aa7c4d9f0bf585df02d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 1227562606}
+  obscurer: {fileID: 1227562603}
 --- !u!1 &1264268708
 GameObject:
   m_ObjectHideFlags: 0
@@ -3911,7 +3911,7 @@ GameObject:
   - component: {fileID: 2133140093}
   - component: {fileID: 2133140092}
   m_Layer: 5
-  m_Name: LoadingImage
+  m_Name: LoadingDots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3948,10 +3948,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25bfc8dea92703b46bb1e52964e196b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverAmplitude: 4
-  hoverRate: 0.8
+  hoverAmplitude: 2
+  hoverRate: 6
   rotationAmplitude: 2
-  rotationRate: 0.8
+  rotationRate: 6
   basePosition: {x: 0, y: 0}
 --- !u!114 &2133140093
 MonoBehaviour:
