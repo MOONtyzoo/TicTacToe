@@ -1,5 +1,6 @@
 Simple Tic-Tac-Toe project, but I overhauled it with my own pixel art design and polishing!
 
+Play it here: https://moontyzoo.itch.io/tic-tac-toe
 ![image](https://github.com/user-attachments/assets/21e4f599-4a45-44ce-aae8-8979f1ebda35)
 
 Polishing:
